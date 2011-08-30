@@ -54,11 +54,12 @@ public class Fecha {
      }
 
      /**
-      * Transforma el string del mes en número
+      * Transforma el string del mes en número. Estático para poderlo invocar
+      * sin la necesidad de crear el objeto
       * @param monthx string recibida para transformar
       * @return int número de mes
       */
-     public int MonthToInt(String monthStr){
+     public static int MonthToInt(String monthStr){
          int month = 0;
 
          switch(monthStr.toLowerCase())

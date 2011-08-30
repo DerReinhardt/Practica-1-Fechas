@@ -44,6 +44,17 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
         dateResult = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         dateResultInt = new javax.swing.JLabel();
+        txtYear2 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        comboDay2 = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        comboMonth2 = new javax.swing.JComboBox();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtMonth = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtMonth2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Practica 1 Lenguajes de Programación");
@@ -76,7 +87,7 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
 
         jLabel6.setText("Fecha resultante:");
 
-        dateResult.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        dateResult.setFont(new java.awt.Font("Tahoma", 2, 14));
         dateResult.setText("sin fecha");
 
         jButton1.setText("Calcular");
@@ -86,8 +97,33 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
             }
         });
 
-        dateResultInt.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        dateResultInt.setFont(new java.awt.Font("Tahoma", 2, 14));
         dateResultInt.setText("sin fecha");
+
+        txtYear2.setText("1950");
+        txtYear2.setEnabled(false);
+
+        jLabel7.setText("Mes");
+
+        jLabel8.setText("Dia");
+
+        comboDay2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        comboDay2.setEnabled(false);
+
+        jLabel9.setText("Fecha 2");
+
+        comboMonth2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        comboMonth2.setEnabled(false);
+
+        jLabel10.setText("Año");
+
+        jLabel11.setText("Mes");
+
+        txtMonth.setText("enero");
+
+        jLabel12.setText("Mes");
+
+        txtMonth2.setText("enero");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,21 +139,44 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtYear))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel4)
                                 .addGap(26, 26, 26)
                                 .addComponent(jLabel5))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addContainerGap(727, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel11))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtYear))))
+                            .addComponent(txtMonth))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(comboDay2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(comboMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtYear2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel7)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel10))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel12))
+                            .addComponent(txtMonth2))
+                        .addGap(204, 204, 204))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addContainerGap(713, Short.MAX_VALUE))
@@ -126,33 +185,58 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
                         .addGap(21, 21, 21))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dateResultInt, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addContainerGap(727, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(actionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel10))
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(comboDay2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtYear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(actionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(57, 57, 57)
+                        .addComponent(txtMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+                .addGap(183, 183, 183)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(dateResult)
@@ -164,16 +248,19 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Habilita/Deshabilita campos dependiendo del index seleccionado.
+     * @param evt evento
+     */
     private void actionBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionBoxActionPerformed
         // TODO add your handling code here:
         
+        DisableElements();  // deshabilita todo cada vez que se mueva la selección
+        
         // check the selection to enable/disable fields
         switch(actionBox.getSelectedIndex())
-        {
-            case 0:     // fecha sin parámetros
-                comboMonth.setEnabled(false);
-                comboDay.setEnabled(false);
-                txtYear.setEnabled(false);
+        {            
+            case 0:     // fecha sin parámetros                
                 break;
                 
             case 1:     // fecha con parámetros enteros
@@ -181,10 +268,22 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
                 comboDay.setEnabled(true);
                 txtYear.setEnabled(true);
                 break;
+                
+            case 2:     // fecha con el mes como string
+                txtMonth.setEnabled(true);
+                comboDay.setEnabled(true);
+                txtYear.setEnabled(true);
+                break;
             
         }
     }//GEN-LAST:event_actionBoxActionPerformed
 
+    /**
+     * Revisa la opción seleccionada y los campos adecuados a ésta.
+     * Después valida 
+     * @param evt 
+     */
+    
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 // TODO add your handling code here:
     int opc = actionBox.getSelectedIndex();
@@ -211,6 +310,29 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             else 
                 PrintDates(null, false);
             
+            break;
+            
+        case 2:     // fecha con el mes como string
+            if(ValidateDate(opc))
+            {
+                String monthStr = txtMonth.getText();                                
+                int monthInt = Fecha.MonthToInt(monthStr);
+                
+                if(monthInt == 0)   // si no es un mes válido, imprime inválido y rompe
+                {
+                    PrintDates(null, false);
+                    break;                        
+                }
+                
+                int day = comboDay.getSelectedIndex() + 1;     // +1 xq el index comienza desde 0                
+                String yearStr = txtYear.getText();
+                int year = Integer.parseInt(yearStr);                     
+                Fecha date = new Fecha(day, monthInt, year);
+                PrintDates(date, true);            
+            }
+            
+            else // fecha invalida
+                PrintDates(null, false);
             break;
         
     }
@@ -269,12 +391,27 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                  try    // checa si el año se pudo parsear
                  {
                      String yearStr = txtYear.getText();
-                     year = Integer.parseInt(yearStr);                     
-                     //dateResult.setText(yearStr);
+                     year = Integer.parseInt(yearStr);                                          
                  }
                  catch(NumberFormatException ex)
+                 {                    
+                    validDate = false;
+                    break;
+                 }
+                 
+                 if(year < 1)       // no se aceptan años negativos
+                     validDate = false;
+                 
+                 break;
+                 
+             case 2:        // fecha con un string
+                 try    // checa si el año se pudo parsear
                  {
-                    dateResult.setText("Fecha no válida: " + ex.toString());
+                     String yearStr = txtYear.getText();
+                     year = Integer.parseInt(yearStr);                                          
+                 }
+                 catch(NumberFormatException ex)
+                 {                    
                     validDate = false;
                     break;
                  }
@@ -292,21 +429,50 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
          
          return validDate;
      }
+    
+    /**
+     * Deshabilita todos los elementos gráficos para limitar al usuario
+     */
+    
+    public void DisableElements()
+    {
+        comboMonth.setEnabled(false);
+        comboDay.setEnabled(false);
+        txtYear.setEnabled(false);
+        
+        comboMonth2.setEnabled(false);
+        comboDay2.setEnabled(false);
+        txtYear2.setEnabled(false);
+        
+        txtMonth.setEnabled(false);
+        txtMonth2.setEnabled(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox actionBox;
     private javax.swing.JComboBox comboDay;
+    private javax.swing.JComboBox comboDay2;
     private javax.swing.JComboBox comboMonth;
+    private javax.swing.JComboBox comboMonth2;
     private javax.swing.JLabel dateResult;
     private javax.swing.JLabel dateResultInt;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtMonth;
+    private javax.swing.JTextField txtMonth2;
     private javax.swing.JTextField txtYear;
+    private javax.swing.JTextField txtYear2;
     // End of variables declaration//GEN-END:variables
 
 }
