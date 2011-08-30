@@ -87,7 +87,7 @@ public class Fecha {
       * @param yearx año
       */
      
-     public void SetMonthAttributes(int dayx, int monthx, int yearx){
+     public void SetDateAttributes(int dayx, int monthx, int yearx){
         day = dayx;
         month = monthx;
         year = yearx;
@@ -127,7 +127,7 @@ public class Fecha {
      {
          boolean sameDate = false;
          
-         if(this.equals(b))
+         if(this.equals(b))     // se necesita probar
              sameDate = true;
          
          return sameDate;
@@ -197,15 +197,15 @@ public class Fecha {
      {
          boolean thisMayor = false;
          
-         if(this.year > b.year)
+         if(this.year > b.GetYear())
              thisMayor = true;
-         else if(this.year == b.year)
+         else if(this.year == b.GetYear())
          {
-             if(this.month > b.month)
+             if(this.month > b.GetMonth())
                  thisMayor = true;
-             else if(month == b.month)
+             else if(month == b.GetMonth())
              {
-                 if(this.day > b.day)
+                 if(this.day > b.GetDay())
                      thisMayor = true;
              }
          }
