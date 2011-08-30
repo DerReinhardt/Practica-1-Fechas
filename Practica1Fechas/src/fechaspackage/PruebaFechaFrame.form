@@ -179,7 +179,7 @@
             <StringItem index="0" value="Fecha sin par&#xe1;metros"/>
             <StringItem index="1" value="Fecha con tres par&#xe1;metros enteros"/>
             <StringItem index="2" value="Fecha con mes como cadena"/>
-            <StringItem index="3" value="Determinar si dos fechas son iguales"/>
+            <StringItem index="3" value="Determinar cu&#xe1;l fecha es mayor"/>
           </StringArray>
         </Property>
       </Properties>

@@ -154,11 +154,11 @@ public class Fecha {
          String fechaStr = day + "/" + month + "/" + year + " (dd/mm/yyy)";
          return fechaStr;
      }
-     
+          
      /**
-      * Convierte los meses de int a string
-      * @param monthInt número a convertir
-      * @return monthStr string asociado con el número de mes
+      * Checa si el año es bisiesto
+      * @param fecha
+      * @return 
       */
      
      public boolean EsBisiesto(Fecha fecha)
@@ -167,6 +167,11 @@ public class Fecha {
          return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
      }
      
+     /**
+      * Convierte los meses de int a string
+      * @param monthInt número a convertir
+      * @return monthStr string asociado con el número de mes
+      */     
      public String MonthToString(int monthInt){
          String monthStr = "";
 

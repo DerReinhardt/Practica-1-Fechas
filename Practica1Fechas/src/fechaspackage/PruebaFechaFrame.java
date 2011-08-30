@@ -59,7 +59,7 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Practica 1 Lenguajes de Programación");
 
-        actionBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fecha sin parámetros", "Fecha con tres parámetros enteros", "Fecha con mes como cadena", "Determinar si dos fechas son iguales" }));
+        actionBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fecha sin parámetros", "Fecha con tres parámetros enteros", "Fecha con mes como cadena", "Determinar cuál fecha es mayor" }));
         actionBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionBoxActionPerformed(evt);
@@ -274,6 +274,16 @@ public class PruebaFechaFrame extends javax.swing.JFrame {
                 comboDay.setEnabled(true);
                 txtYear.setEnabled(true);
                 break;
+                
+            case 3:   // checar si dos fechas son iguales
+                comboMonth.setEnabled(true);
+                comboDay.setEnabled(true);
+                txtYear.setEnabled(true);
+                comboMonth2.setEnabled(true);
+                comboDay2.setEnabled(true);
+                txtYear2.setEnabled(true);
+                
+                break;
             
         }
     }//GEN-LAST:event_actionBoxActionPerformed
@@ -334,6 +344,36 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             else // fecha invalida
                 PrintDates(null, false);
             break;
+                        
+        case 3:                     // compare dates
+            if(ValidateDate(opc))
+            {
+                int day = comboDay.getSelectedIndex() + 1;     // +1 xq el index comienza desde 0
+                int month = comboMonth.getSelectedIndex() + 1;     // +1 xq el index comienza desde 0
+                String yearStr = txtYear.getText();
+                int year = Integer.parseInt(yearStr);                     
+                Fecha date = new Fecha(day, month, year);
+                
+                int day2 = comboDay2.getSelectedIndex() + 1;     // +1 xq el index comienza desde 0
+                int month2 = comboMonth2.getSelectedIndex() + 1;     // +1 xq el index comienza desde 0
+                String yearStr2 = txtYear2.getText();
+                int year2 = Integer.parseInt(yearStr2);                     
+                Fecha date2 = new Fecha(day2, month2, year2);
+                
+                if(date.CompareDates(date2))
+                {
+                    dateResult.setText("La primera fecha es mayor");
+                }
+                else
+                {
+                    dateResult.setText("La segunda fecha es mayor");
+                }
+                
+                dateResultInt.setText("Sin fecha");
+            }
+            else 
+                PrintDates(null, false);
+            break;
         
     }
     
@@ -381,13 +421,14 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
      {
          boolean validDate = true;                  
          
-         int year;
+         int year, year2;
          
          switch(opc)
          {
              case 0:    // fecha sin parámetros -> no hay nada que checar
                  break;
              case 1:    // fecha con números enteros
+             case 2:    // fecha con un string
                  try    // checa si el año se pudo parsear
                  {
                      String yearStr = txtYear.getText();
@@ -402,13 +443,15 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                  if(year < 1)       // no se aceptan años negativos
                      validDate = false;
                  
-                 break;
+                 break;                                               
                  
-             case 2:        // fecha con un string
+             case 3:            // validar dos fechas
                  try    // checa si el año se pudo parsear
                  {
                      String yearStr = txtYear.getText();
                      year = Integer.parseInt(yearStr);                                          
+                     String yearStr2 = txtYear2.getText();
+                     year2 = Integer.parseInt(yearStr2);
                  }
                  catch(NumberFormatException ex)
                  {                    
@@ -416,10 +459,10 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     break;
                  }
                  
-                 if(year < 1)       // no se aceptan años negativos
+                 if(year < 1 || year2 < 1)       // no se aceptan años negativos
                      validDate = false;
                  
-                 break;
+                 break;                                                                
          }
          
          // case: negative numbers
