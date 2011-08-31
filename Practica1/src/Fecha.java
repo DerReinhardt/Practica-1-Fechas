@@ -1,8 +1,9 @@
 /*
  * The following class uses methods to operate dates. 
+ *
  */
 
-package fechaspackage;
+
 import java.lang.String;
 
 /**
@@ -41,6 +42,17 @@ public class Fecha {
     }
 
     /**
+     * Constructor que crea un objeto copiando los par�metros del objeto recibido
+     * @param originalDate Objeto del cual vamos a copiar
+     */
+    public Fecha(Fecha originalDate)
+    {
+        day = originalDate.GetDay();
+        month = originalDate.GetMonth();
+        year = originalDate.GetYear();
+    }
+
+    /**
      * Constructor que toma dos enteros y una cadena para el nombre del mes
      * @param dayx día
      * @param yearx año
@@ -62,22 +74,35 @@ public class Fecha {
      public static int MonthToInt(String monthStr){
          int month = 0;
 
-         switch(monthStr.toLowerCase())
-         {
-            case "enero":      month = 1;break;
-            case "febrero":   month =  2; break;
-            case "marzo":      month =  3; break;
-            case "abril":      month =  4; break;
-            case "mayo":        month =  5; break;
-            case "junio":       month =  6; break;
-            case "julio":       month =  7; break;
-            case "agosto":     month =  8; break;
-            case "septiembre":  month =  9; break;
-            case "octubre":    month = 10; break;
-            case "noviembre":   month = 11; break;
-            case "diciembre":   month = 12; break;
-            default:           month =  0; break;
-         }
+         String lMonthStr = monthStr.toLowerCase();
+
+         if(lMonthStr.equals("enero"))
+             month = 1;
+         else if(lMonthStr.equals("febrero"))
+             month = 2;
+         else if(lMonthStr.equals("marzo"))
+             month = 3;
+         else if(lMonthStr.equals("abril"))
+             month = 4;
+         else if(lMonthStr.equals("mayo"))
+             month = 5;
+         else if(lMonthStr.equals("junio"))
+             month = 6;
+         else if(lMonthStr.equals("julio"))
+             month = 7;
+         else if(lMonthStr.equals("agosto"))
+             month = 8;
+         else if(lMonthStr.equals("septiembre"))
+             month = 9;
+         else if(lMonthStr.equals("octubre"))
+             month = 10;
+         else if(lMonthStr.equals("noviembre"))
+             month = 11;
+         else if(lMonthStr.equals("diciembre"))
+             month = 12;
+         else
+             month = 0;
+         
          return month;
      }
      
@@ -219,7 +244,33 @@ public class Fecha {
          return thisMayor;
          
      }
-     
+
+      public long gregorianoajuliano(int dayx, int monthx, int yearx)
+    {
+
+         long tmonth, tyear;
+         long jday;
+
+         if(monthx>2)
+         {
+             tmonth = monthx - 3;
+             tyear = yearx;
+         }
+         else
+             {
+             tmonth = monthx + 9;
+             tyear = yearx -1;
+         }
+         jday = (tyear/4000)*1460969;
+         tyear = (tyear%4000);
+         jday = jday + (((tyear/100)*146097)/4)+
+                 (((tyear%100)*1461)/4)+
+                 (((153*tmonth)+2)/5)+
+                 dayx + 1721119;
+
+         return jday;
+
+    }
      
 
 }
