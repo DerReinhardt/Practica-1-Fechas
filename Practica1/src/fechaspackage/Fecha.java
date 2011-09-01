@@ -1,3 +1,5 @@
+package fechaspackage;
+
 /*
  * The following class uses methods to operate dates. 
  *
@@ -176,7 +178,7 @@ public class Fecha {
       */
      public String FechaIntToString()
      {
-         String fechaStr = day + "/" + month + "/" + year + " (dd/mm/yyy)";
+         String fechaStr = day + "-" + month + "-" + year + " (dd-mm-yyy)";
          return fechaStr;
      }
           
@@ -245,7 +247,35 @@ public class Fecha {
          
      }
 
-      public long gregorianoajuliano(int dayx, int monthx, int yearx)
+     /*
+     * Método que devuelve la diferencia en dias entre la fecha
+     * que se pasa por parametro (dayx, monthx, yearx) y la
+     * fecha del objeto.
+     */
+
+    public long difDeDosFechas(int dayx, int monthx, int yearx)
+    {
+        long diferencia = 0;
+        long juliano1 = 0;
+        long juliano2 = 0;
+
+        juliano1 = gregorianoajuliano(dayx, monthx, yearx);
+        juliano2 = gregorianoajuliano(day, month, year);
+
+        diferencia = juliano1 - juliano2;
+        if(diferencia < 0)
+            diferencia = diferencia * -1 ;
+
+
+
+        return diferencia;
+    }
+
+    /*
+     * Transforma del calendario gregoriano a julioano
+     */
+
+    public static long gregorianoajuliano(int dayx, int monthx, int yearx)
     {
 
          long tmonth, tyear;
@@ -269,7 +299,86 @@ public class Fecha {
                  dayx + 1721119;
 
          return jday;
+    } 
+    
+     /*
+     * Transforma dia juliano a calendario gregoriano
+     */
+    public void julianoAGregoriano(long jday)
+    {
+        jday = jday - 1721119;
+        year = (int)(4 * jday - 1) / 146097;
+        jday = 4 * jday - 1 - 146097 * year;
+        day = (int)jday / 4;
 
+        jday = (4 * day + 3) / 1461;
+        day = 4 * day + 3 - 1461 * (int)jday;
+        day = (day + 4) / 4;
+
+        month = (5 * day - 3) / 153;
+        day = 5 * day -3 - 153 * month;
+        day = (day + 5) / 5;
+
+        year = 100 * year + (int)jday;
+
+        if (month < 10)
+            month = month + 3;
+        else
+        {
+            month = month - 9;
+            year = year + 1;
+        }
+
+    }
+
+
+ /*
+     * Metodo para sumar dias a una fecha inicial
+     */
+    public void sumarDiasAFecha(long dias)
+    {
+        long julianoInicial = gregorianoajuliano(day, month, year);
+        long julianoFinal = julianoInicial + dias;
+
+        julianoAGregoriano(julianoFinal);
+
+    }
+    
+    /*
+     * Metodo que devuelve los dias transcurridos en el año
+     */
+    public int diasTranscurridosEnElAnio()
+    {
+        int diasTrans = 0;
+
+        long anioJuliano = 0;
+        long fechaJuliana = 0;
+
+        anioJuliano = gregorianoajuliano(1, 1, year);
+        fechaJuliana = gregorianoajuliano(day, month, year);
+
+        diasTrans = (int) (fechaJuliana - anioJuliano) + 1;
+
+        return diasTrans;
+    }
+
+
+
+    /*
+     * Método que determina si dos fechas son iguales
+     */
+    public boolean sonIguales(int dayx, int monthx, int yearx)
+    {
+        long juliano1 = 0;
+        long juliano2 = 0;
+
+        juliano1 = gregorianoajuliano(dayx, monthx, yearx);
+        juliano2 = gregorianoajuliano(day, month, year);
+
+        if(juliano1 == juliano2)
+            return true;
+        else
+            return false;
     }
      
 
