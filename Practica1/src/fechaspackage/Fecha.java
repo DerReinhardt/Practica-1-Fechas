@@ -115,10 +115,16 @@ public class Fecha {
       * @param yearx a√±o
       */
      
-     public void SetDateAttributes(int dayx, int monthx, int yearx){
-        day = dayx;
-        month = monthx;
-        year = yearx;
+     public void SetDay(int dayx){
+        day = dayx;        
+     }
+     
+     public void SetMonth(int monthx){
+        month = monthx;        
+     }
+     
+     public void SetYear(int yearx){
+        year = yearx;        
      }
      
      /**
@@ -188,9 +194,8 @@ public class Fecha {
       * @return 
       */
      
-     public boolean EsBisiesto(Fecha fecha)
-     {
-         int year = fecha.GetYear();
+     public static boolean EsBisiesto(int year)
+     {         
          return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
      }
      
@@ -381,5 +386,62 @@ public class Fecha {
             return false;
     }
      
+    /*
+     * Metodo que comprueba los dias permitidos para cada mes.
+     * Regresa "true" si la fecha es correcta o
+     * regresa "false" si la fecha es incorrecta
+     */
+    public static boolean pruebaDiasDelMes(int dayx, int monthx, int yearx)
+    {
+        if(yearx < 1900)
+        {
+            System.out.println("El aÒo debe de ser mayor a 1900");
+            return false;
+        }
+
+        if(monthx < 0 || monthx > 12)
+        {
+            System.out.println("Numero de mes erroneo");
+            return false;
+        }
+
+
+        if(monthx == 2)
+        {
+            if(EsBisiesto(yearx))
+            {
+                if(dayx >0 && dayx < 30)
+                    return true;
+                else
+                    System.out.println("\nMetiste un numero de dÌa incorrecto");
+                    return false;
+            }
+            else
+            {
+                if(dayx >0 && dayx < 29)
+                    return true;
+                else
+                    System.out.println("\nMetiste un numero de dÌa incorrecto");
+                    return false;
+            }
+        }
+
+        if(monthx == 4 || monthx == 6 || monthx == 9 || monthx == 11)
+        {
+            if(dayx >0 && dayx < 31)
+                    return true;
+                else
+                    System.out.println("\nMetiste un numero de dÌa incorrecto");
+                    return false;
+        }
+    else
+        {
+            if(dayx >0 && dayx < 32)
+                    return true;
+                else
+                    System.out.println("\nMetiste un numero de dÌa incorrecto");
+                    return false;
+        }
+    }
 
 }
