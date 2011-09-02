@@ -61,17 +61,17 @@ public class PruebaFechaMain {
                 LeeFechaString(opc);                
                 break;
             
-            case 4:
+            case 4:     // Copia fechas
                 PrintDates(CopiaFechas(LeeFechaString(2)), true);                
                 break;
-            case 5:
+            case 5:     // set parameters
                 SetFecha();
                 break;
-            case 6:
+            case 6:     // imprimir gets
                 GetFecha(SetFecha());
                 break;
                 
-            case 7:
+            case 7:     // diferencia entre fechas
                 Fecha date1 = LeeFechaString(2);
                 Fecha date2 = LeeFechaString(2);
                 
